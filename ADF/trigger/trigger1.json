@@ -1,0 +1,28 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"adfID": 1,
+					"adfName": "jas"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2019-05-15T18:07:00Z",
+				"endTime": "2019-05-16T18:15:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

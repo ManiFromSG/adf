@@ -1,0 +1,51 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored Procedure1",
+				"type": "SqlServerStoredProcedure",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertPerson]",
+					"storedProcedureParameters": {
+						"id": {
+							"value": {
+								"value": "@pipeline().parameters.adfID",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"personName": {
+							"value": {
+								"value": "@concat('reshma',pipeline().parameters.adfName)",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "linkedService1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"adfID": {
+				"type": "int",
+				"defaultValue": 0
+			},
+			"adfName": {
+				"type": "string"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

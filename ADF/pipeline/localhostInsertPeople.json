@@ -1,0 +1,50 @@
+{
+	"name": "localhostInsertPeople",
+	"properties": {
+		"activities": [
+			{
+				"name": "InsertPeople",
+				"type": "SqlServerStoredProcedure",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertPerson]",
+					"storedProcedureParameters": {
+						"id": {
+							"value": {
+								"value": "@pipeline().parameters.dfID",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"personName": {
+							"value": {
+								"value": "@pipeline().parameters.dfName",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServer1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"dfID": {
+				"type": "int"
+			},
+			"dfName": {
+				"type": "string"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
