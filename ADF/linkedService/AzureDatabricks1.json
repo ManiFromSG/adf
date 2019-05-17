@@ -1,0 +1,12 @@
+{
+	"name": "AzureDatabricks1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://southindia.azuredatabricks.net",
+			"existingClusterId": "0517-063200-doily107",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIk1BTklBREZfNGJkODQyMTItMTIwYy00NzY1LWExMTItODg4MmU1YWZhYTk5Ig0KfQ=="
+		}
+	}
+}
